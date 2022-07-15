@@ -17,6 +17,12 @@ public class ApplicationInfo {
     @JsonProperty("splash-screen")
     private BasicResource splashScreen;
     private List<BasicResource> icons;
+    private String name;
+    private String headline;
+    private String description;
+    private BasicResource license;
+    @JsonProperty("exe-name")
+    private String exeName;
 
     public ApplicationInfo getWindows() {
         return windows;
@@ -56,5 +62,48 @@ public class ApplicationInfo {
 
     public void setIcons(List<BasicResource> icons) {
         this.icons = icons;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHeadline() {
+        return headline;
+    }
+
+    public void setHeadline(String headline) {
+        this.headline = headline;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BasicResource getLicense() {
+        return license;
+    }
+
+    public void setLicense(BasicResource license) {
+        this.license = license;
+    }
+
+    public String getExeName() {
+        if(exeName == null && name != null) {
+            return name.toLowerCase().replaceAll("\\s", "-");
+        }
+        return exeName;
+    }
+
+    public void setExeName(String exeName) {
+        this.exeName = exeName;
     }
 }
