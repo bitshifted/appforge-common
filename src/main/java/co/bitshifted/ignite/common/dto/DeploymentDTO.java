@@ -17,6 +17,9 @@ public class DeploymentDTO {
     private ApplicationInfo applicationInfo;
     @JsonProperty("jvm")
     private JvmConfigurationDTO jvmConfiguration;
+    private String version;
+    @JsonProperty("build-number")
+    private String buildNumber;
 
     private List<BasicResource> resources = new ArrayList<>();
 
@@ -54,5 +57,21 @@ public class DeploymentDTO {
 
     public void setResources(List<BasicResource> resources) {
         this.resources = resources;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getBuildNumber() {
+        return buildNumber;
+    }
+
+    public void setBuildNumber(String buildNumber) {
+        this.buildNumber = buildNumber;
     }
 }
