@@ -2,10 +2,13 @@ package co.bitshifted.ignite.common.dto;
 
 import co.bitshifted.ignite.common.model.JavaVersion;
 import co.bitshifted.ignite.common.model.JvmVendor;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class JvmConfigurationDTO {
 
     private JvmVendor vendor;
@@ -24,7 +27,13 @@ public class JvmConfigurationDTO {
     private String moduleName;
     private String arguments;
 
-    private List<JavaDependencyDTO> dependencies;
+    private List<JavaDependencyDTO> dependencies = new ArrayList<>();
+
+    // platform-specific configuration
+    private JvmConfigurationDTO linuxConfig;
+    private JvmConfigurationDTO macConfig;
+    private JvmConfigurationDTO windowsConfig;
+
 
 
     public JvmVendor getVendor() {
@@ -105,5 +114,29 @@ public class JvmConfigurationDTO {
 
     public void setDependencies(List<JavaDependencyDTO> dependencies) {
         this.dependencies = dependencies;
+    }
+
+    public JvmConfigurationDTO getLinuxConfig() {
+        return linuxConfig;
+    }
+
+    public void setLinuxConfig(JvmConfigurationDTO linuxConfig) {
+        this.linuxConfig = linuxConfig;
+    }
+
+    public JvmConfigurationDTO getMacConfig() {
+        return macConfig;
+    }
+
+    public void setMacConfig(JvmConfigurationDTO macConfig) {
+        this.macConfig = macConfig;
+    }
+
+    public JvmConfigurationDTO getWindowsConfig() {
+        return windowsConfig;
+    }
+
+    public void setWindowsConfig(JvmConfigurationDTO windowsConfig) {
+        this.windowsConfig = windowsConfig;
     }
 }

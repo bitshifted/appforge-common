@@ -4,15 +4,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApplicationInfo {
 
-    private ApplicationInfo windows;
-    private ApplicationInfo linux;
-    private ApplicationInfo mac;
+    private ApplicationInfoPlatform windows;
+    private ApplicationInfoPlatform linux;
+    private ApplicationInfoPlatform mac;
 
     @JsonProperty("splash-screen")
     private BasicResource splashScreen;
@@ -23,28 +26,36 @@ public class ApplicationInfo {
     private BasicResource license;
     @JsonProperty("exe-name")
     private String exeName;
+    @JsonProperty("supported-operating-systems")
+    private Set<OperatingSystem> supportedOperatingSystems = new HashSet<>();
 
-    public ApplicationInfo getWindows() {
+    public ApplicationInfo() {
+        supportedOperatingSystems.add(OperatingSystem.LINUX);
+        supportedOperatingSystems.add(OperatingSystem.MAC);
+        supportedOperatingSystems.add(OperatingSystem.WINDOWS);
+    }
+
+    public ApplicationInfoPlatform getWindows() {
         return windows;
     }
 
-    public void setWindows(ApplicationInfo windows) {
+    public void setWindows(ApplicationInfoPlatform windows) {
         this.windows = windows;
     }
 
-    public ApplicationInfo getLinux() {
+    public ApplicationInfoPlatform getLinux() {
         return linux;
     }
 
-    public void setLinux(ApplicationInfo linux) {
+    public void setLinux(ApplicationInfoPlatform linux) {
         this.linux = linux;
     }
 
-    public ApplicationInfo getMac() {
+    public ApplicationInfoPlatform getMac() {
         return mac;
     }
 
-    public void setMac(ApplicationInfo mac) {
+    public void setMac(ApplicationInfoPlatform mac) {
         this.mac = mac;
     }
 
@@ -105,5 +116,13 @@ public class ApplicationInfo {
 
     public void setExeName(String exeName) {
         this.exeName = exeName;
+    }
+
+    public Set<OperatingSystem> getSupportedOperatingSystems() {
+        return supportedOperatingSystems;
+    }
+
+    public void setSupportedOperatingSystems(Set<OperatingSystem> supportedOperatingSystems) {
+        this.supportedOperatingSystems = supportedOperatingSystems;
     }
 }

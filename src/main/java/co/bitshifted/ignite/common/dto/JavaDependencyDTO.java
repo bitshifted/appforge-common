@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.File;
+import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -19,6 +20,18 @@ public class JavaDependencyDTO {
     private long size;
     private boolean modular;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JavaDependencyDTO that = (JavaDependencyDTO) o;
+        return groupId.equals(that.groupId) && artifactId.equals(that.artifactId) && version.equals(that.version) && Objects.equals(type, that.type) && Objects.equals(classifier, that.classifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(groupId, artifactId, version, type, classifier);
+    }
 
     public String getGroupId() {
         return groupId;
