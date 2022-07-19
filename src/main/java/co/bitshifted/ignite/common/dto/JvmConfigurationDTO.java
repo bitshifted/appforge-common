@@ -2,10 +2,14 @@ package co.bitshifted.ignite.common.dto;
 
 import co.bitshifted.ignite.common.model.JavaVersion;
 import co.bitshifted.ignite.common.model.JvmVendor;
+import co.bitshifted.ignite.common.model.OperatingSystem;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class JvmConfigurationDTO {
 
     private JvmVendor vendor;
@@ -24,7 +28,12 @@ public class JvmConfigurationDTO {
     private String moduleName;
     private String arguments;
 
-    private List<JavaDependencyDTO> dependencies;
+    private List<JavaDependencyDTO> dependencies = new ArrayList<>();
+
+    // platform-specific configuration
+    private JvmConfigurationDTO linuxConfig;
+    private JvmConfigurationDTO macConfig;
+    private JvmConfigurationDTO windowsConfig;
 
 
     public JvmVendor getVendor() {
@@ -100,10 +109,59 @@ public class JvmConfigurationDTO {
     }
 
     public List<JavaDependencyDTO> getDependencies() {
-        return dependencies;
+       return dependencies;
+    }
+
+    public List<JavaDependencyDTO> collectDependencies(OperatingSystem os) {
+        List<JavaDependencyDTO> allDeps = new ArrayList<>();
+        allDeps.addAll(dependencies);
+        switch (os) {
+            case LINUX:
+                allDeps.addAll(linuxConfig.dependencies);
+                break;
+            case MAC:
+                allDeps.addAll(macConfig.dependencies);
+                break;
+            case WINDOWS:
+                allDeps.addAll(windowsConfig.dependencies);
+        }
+        return  allDeps;
+    }
+
+    public List<JavaDependencyDTO> collectAllDependencies() {
+        List<JavaDependencyDTO> allDeps = new ArrayList<>();
+        allDeps.addAll(dependencies);
+        allDeps.addAll(linuxConfig.dependencies);
+        allDeps.addAll(macConfig.dependencies);
+        allDeps.addAll(windowsConfig.dependencies);
+        return allDeps;
     }
 
     public void setDependencies(List<JavaDependencyDTO> dependencies) {
         this.dependencies = dependencies;
+    }
+
+    public JvmConfigurationDTO getLinuxConfig() {
+        return linuxConfig;
+    }
+
+    public void setLinuxConfig(JvmConfigurationDTO linuxConfig) {
+        this.linuxConfig = linuxConfig;
+    }
+
+    public JvmConfigurationDTO getMacConfig() {
+        return macConfig;
+    }
+
+    public void setMacConfig(JvmConfigurationDTO macConfig) {
+        this.macConfig = macConfig;
+    }
+
+    public JvmConfigurationDTO getWindowsConfig() {
+        return windowsConfig;
+    }
+
+    public void setWindowsConfig(JvmConfigurationDTO windowsConfig) {
+        this.windowsConfig = windowsConfig;
     }
 }
