@@ -2,6 +2,7 @@ package co.bitshifted.ignite.common.dto;
 
 import co.bitshifted.ignite.common.model.JavaVersion;
 import co.bitshifted.ignite.common.model.JvmVendor;
+import co.bitshifted.ignite.common.model.OperatingSystem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -33,7 +34,6 @@ public class JvmConfigurationDTO {
     private JvmConfigurationDTO linuxConfig;
     private JvmConfigurationDTO macConfig;
     private JvmConfigurationDTO windowsConfig;
-
 
 
     public JvmVendor getVendor() {
@@ -109,7 +109,32 @@ public class JvmConfigurationDTO {
     }
 
     public List<JavaDependencyDTO> getDependencies() {
-        return dependencies;
+       return dependencies;
+    }
+
+    public List<JavaDependencyDTO> collectDependencies(OperatingSystem os) {
+        List<JavaDependencyDTO> allDeps = new ArrayList<>();
+        allDeps.addAll(dependencies);
+        switch (os) {
+            case LINUX:
+                allDeps.addAll(linuxConfig.dependencies);
+                break;
+            case MAC:
+                allDeps.addAll(macConfig.dependencies);
+                break;
+            case WINDOWS:
+                allDeps.addAll(windowsConfig.dependencies);
+        }
+        return  allDeps;
+    }
+
+    public List<JavaDependencyDTO> collectAllDependencies() {
+        List<JavaDependencyDTO> allDeps = new ArrayList<>();
+        allDeps.addAll(dependencies);
+        allDeps.addAll(linuxConfig.dependencies);
+        allDeps.addAll(macConfig.dependencies);
+        allDeps.addAll(windowsConfig.dependencies);
+        return allDeps;
     }
 
     public void setDependencies(List<JavaDependencyDTO> dependencies) {
