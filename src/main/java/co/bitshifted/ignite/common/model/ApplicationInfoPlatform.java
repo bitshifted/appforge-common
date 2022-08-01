@@ -11,9 +11,9 @@ import java.util.List;
 public class ApplicationInfoPlatform {
 
     @JsonProperty("splash-screen")
-    private BasicResource splashScreen;
-    private List<BasicResource> icons;
-    private BasicResource license;
+    protected BasicResource splashScreen;
+    protected List<BasicResource> icons;
+    protected BasicResource license;
 
     public BasicResource getSplashScreen() {
         return splashScreen;

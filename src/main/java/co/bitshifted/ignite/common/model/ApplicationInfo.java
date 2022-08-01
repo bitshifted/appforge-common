@@ -14,7 +14,7 @@ import java.util.Set;
 public class ApplicationInfo {
 
     private ApplicationInfoPlatform windows;
-    private ApplicationInfoPlatform linux;
+    private LinuxApplicationInfo linux;
     private ApplicationInfoPlatform mac;
 
     @JsonProperty("splash-screen")
@@ -47,11 +47,11 @@ public class ApplicationInfo {
         this.windows = windows;
     }
 
-    public ApplicationInfoPlatform getLinux() {
+    public LinuxApplicationInfo getLinux() {
         return linux;
     }
 
-    public void setLinux(ApplicationInfoPlatform linux) {
+    public void setLinux(LinuxApplicationInfo linux) {
         this.linux = linux;
     }
 
