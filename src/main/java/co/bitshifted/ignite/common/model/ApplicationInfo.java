@@ -29,6 +29,10 @@ public class ApplicationInfo {
     @JsonProperty("supported-operating-systems")
     private Set<OperatingSystem> supportedOperatingSystems = new HashSet<>();
 
+    @JsonProperty("home-page")
+    private String homePageUrl;
+    private Set<AppAuthor> authors = new HashSet<>();
+
     public ApplicationInfo() {
         supportedOperatingSystems.add(OperatingSystem.LINUX);
         supportedOperatingSystems.add(OperatingSystem.MAC);
@@ -124,5 +128,21 @@ public class ApplicationInfo {
 
     public void setSupportedOperatingSystems(Set<OperatingSystem> supportedOperatingSystems) {
         this.supportedOperatingSystems = supportedOperatingSystems;
+    }
+
+    public void setHomePageUrl(String homePageUrl) {
+        this.homePageUrl = homePageUrl;
+    }
+
+    public String getHomePageUrl() {
+        return homePageUrl;
+    }
+
+    public void setAuthors(Set<AppAuthor> authors) {
+        this.authors = authors;
+    }
+
+    public Set<AppAuthor> getAuthors() {
+        return authors;
     }
 }
