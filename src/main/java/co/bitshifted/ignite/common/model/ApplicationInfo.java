@@ -29,9 +29,9 @@ public class ApplicationInfo {
     @JsonProperty("supported-operating-systems")
     private Set<OperatingSystem> supportedOperatingSystems = new HashSet<>();
 
-    @JsonProperty("home-page")
     private String homePageUrl;
-    private Set<AppAuthor> authors = new HashSet<>();
+    private String publisher;
+    private String publisherEmail;
 
     public ApplicationInfo() {
         supportedOperatingSystems.add(OperatingSystem.LINUX);
@@ -138,11 +138,19 @@ public class ApplicationInfo {
         return homePageUrl;
     }
 
-    public void setAuthors(Set<AppAuthor> authors) {
-        this.authors = authors;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public Set<AppAuthor> getAuthors() {
-        return authors;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getPublisherEmail() {
+        return publisherEmail;
+    }
+
+    public void setPublisherEmail(String publisherEmail) {
+        this.publisherEmail = publisherEmail;
     }
 }
