@@ -12,21 +12,17 @@ package co.bitshifted.appforge.common.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
 public class LinuxApplicationInfo extends ApplicationInfoPlatform {
 
     private List<String> categories = new ArrayList<>();
-
-    public List<String> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<String> categories) {
-       this.categories = categories;
-    }
 }
