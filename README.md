@@ -1,2 +1,2 @@
-# ignite-common
-Common component for Ignite tools
+# appforge-common
+Common component for AppForge tools
