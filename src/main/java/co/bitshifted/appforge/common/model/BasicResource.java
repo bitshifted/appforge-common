@@ -10,7 +10,6 @@
 
 package co.bitshifted.appforge.common.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -27,4 +26,5 @@ public class BasicResource {
     private String sha256;
     private Long size;
     private String mimeType;
+    private Boolean executable = false;
 }
