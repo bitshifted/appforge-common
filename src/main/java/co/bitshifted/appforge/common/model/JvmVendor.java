@@ -12,8 +12,11 @@ package co.bitshifted.appforge.common.model;
 
 public enum JvmVendor {
 
+    ADOPTIUM("adoptium", "Eclipse Adoptium"),
+    AZUL("azul", "Azul Systems"),
+    CORRETTO("corretto", "Amazon Corretto"),
     OPENJDK("openjdk", "OpenJDK"),
-    ADOPTIUM("adoptium", "Eclipse Adoptium");
+    ;
 
     private final String code;
     private final String display;
