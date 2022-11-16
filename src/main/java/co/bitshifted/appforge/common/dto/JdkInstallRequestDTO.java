@@ -19,4 +19,5 @@ public class JdkInstallRequestDTO {
     private JvmVendor vendor;
     private JavaVersion majorVersion;
     private String release;
+    private boolean autoUpdate;
 }
