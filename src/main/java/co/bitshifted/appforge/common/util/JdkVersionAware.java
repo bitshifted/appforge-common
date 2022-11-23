@@ -8,12 +8,9 @@
  *
  */
 
-package co.bitshifted.appforge.common.model;
+package co.bitshifted.appforge.common.util;
 
-public enum JdkInstallationStatus {
-    PENDING,
-    DOWNLOAD_IN_PROGRESS,
-    INSTALL_IN_PROGRESS,
-    COMPLETED,
-    FAILED;
+public interface JdkVersionAware {
+
+    String getVersion();
 }

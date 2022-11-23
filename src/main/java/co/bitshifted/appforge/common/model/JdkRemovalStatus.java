@@ -10,10 +10,9 @@
 
 package co.bitshifted.appforge.common.model;
 
-public enum JdkInstallationStatus {
+public enum JdkRemovalStatus {
     PENDING,
-    DOWNLOAD_IN_PROGRESS,
-    INSTALL_IN_PROGRESS,
+    IN_PROGRESS,
     COMPLETED,
     FAILED;
 }

@@ -8,16 +8,14 @@
  *
  */
 
-package co.bitshifted.appforge.common.dto;
+package co.bitshifted.appforge.common.dto.jdk;
 
-import co.bitshifted.appforge.common.model.JavaVersion;
-import co.bitshifted.appforge.common.model.JvmVendor;
+import co.bitshifted.appforge.common.model.JdkRemovalStatus;
 import lombok.Data;
 
 @Data
-public class JdkInstallRequestDTO {
-    private JvmVendor vendor;
-    private JavaVersion majorVersion;
-    private String release;
-    private boolean autoUpdate;
+public class JdkRemovalStatusDTO {
+    private String id;
+    private JdkRemovalStatus status;
+    private String details;
 }
