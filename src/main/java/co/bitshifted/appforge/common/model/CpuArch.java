@@ -10,25 +10,16 @@
 
 package co.bitshifted.appforge.common.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonValue;
+public enum CpuArch {
+    X64 ("x64"),
+    AARCH64 ("aarch64");
 
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum JavaVersion {
+    private String display;
 
-    JAVA_8("8"),
-    JAVA_11("11"),
-    JAVA_17("17"),
-    JAVA_18("18"),
-    JAVA_19("19");
-
-    private final String display;
-
-    JavaVersion(String display) {
+     CpuArch(String display) {
         this.display = display;
     }
 
-    @JsonValue
     public String getDisplay() {
         return display;
     }

@@ -29,8 +29,7 @@ public class JvmConfigurationDTO {
     private JvmVendor vendor;
     @JsonProperty("major-version")
     private JavaVersion majorVersion;
-    @JsonProperty("fixed-version")
-    private String fixedVersion;
+    private String release;
     @JsonProperty("jvm-options")
     private String jvmOptions;
     @JsonProperty("system-properties")
