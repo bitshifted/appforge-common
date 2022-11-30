@@ -26,9 +26,9 @@ import java.util.Set;
 @Setter
 public class ApplicationInfo {
 
-    private ApplicationInfoPlatform windows;
+    private WindowsApplicationInfo windows;
     private LinuxApplicationInfo linux;
-    private ApplicationInfoPlatform mac;
+    private MacApplicationInfo mac;
 
     @JsonProperty("splash-screen")
     private BasicResource splashScreen;

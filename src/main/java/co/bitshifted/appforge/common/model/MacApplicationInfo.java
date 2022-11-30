@@ -15,21 +15,18 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
-public class LinuxApplicationInfo extends ApplicationInfoPlatform {
+public class MacApplicationInfo extends ApplicationInfoPlatform{
 
-    private List<String> categories = new ArrayList<>();
-
-    public LinuxApplicationInfo() {
+    public MacApplicationInfo() {
         super();
         supportedCpuArchitectures.add(CpuArch.X64);
+        supportedCpuArchitectures.add(CpuArch.AARCH64);
     }
 }
