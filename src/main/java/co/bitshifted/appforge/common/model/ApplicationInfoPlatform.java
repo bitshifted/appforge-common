@@ -16,7 +16,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -28,5 +30,7 @@ public class ApplicationInfoPlatform {
     protected BasicResource splashScreen;
     protected List<BasicResource> icons;
     protected BasicResource license;
+    @JsonProperty("supported-cpu-arch")
+    protected Set<CpuArch> supportedCpuArchitectures = new HashSet<>();
 
 }
