@@ -27,9 +27,13 @@ import java.util.Set;
 public class LinuxApplicationInfo extends ApplicationInfoPlatform {
 
     private List<String> categories = new ArrayList<>();
+    private Set<LinuxPackageType> packageTypes = new HashSet<>();
 
     public LinuxApplicationInfo() {
         super();
         supportedCpuArchitectures.add(CpuArch.X64);
+        packageTypes.add(LinuxPackageType.DEB);
+        packageTypes.add(LinuxPackageType.RPM);
+        packageTypes.add(LinuxPackageType.TAR_GZ);
     }
 }
