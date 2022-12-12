@@ -10,6 +10,8 @@
 
 package co.bitshifted.appforge.common.dto;
 
+import co.bitshifted.appforge.common.model.CpuArch;
+import co.bitshifted.appforge.common.model.OperatingSystem;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -31,6 +33,9 @@ public class JavaDependencyDTO {
     private String sha256;
     private long size;
     private boolean modular;
+    private boolean platformSpecific;
+    private OperatingSystem supportedOs;
+    private CpuArch supportedCpuArch;
 
     @Override
     public boolean equals(Object o) {
