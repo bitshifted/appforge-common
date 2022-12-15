@@ -16,6 +16,7 @@ public enum JvmVendor {
     AZUL("azul", "Azul Systems"),
     CORRETTO("corretto", "Amazon Corretto"),
     OPENJDK("openjdk", "OpenJDK"),
+    ORACLE("oracle", "Oracle JAVA SE")
     ;
 
     private final String code;
