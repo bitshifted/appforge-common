@@ -20,6 +20,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Getter
@@ -39,6 +40,10 @@ public class JvmConfigurationDTO {
     private String jar;
     @JsonProperty("module-name")
     private String moduleName;
+    @JsonProperty("add-modules")
+    private String addModules;
+    @JsonProperty("jlink-ignore-modules")
+    private Set<String> jlinkIgnoreModules;
     private String arguments;
 
     private List<JavaDependencyDTO> dependencies = new ArrayList<>();
