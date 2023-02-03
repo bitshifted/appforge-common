@@ -13,6 +13,7 @@ package co.bitshifted.appforge.common.dto;
 import co.bitshifted.appforge.common.model.DeploymentStatus;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,18 +21,15 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Getter
 @Setter
+@AllArgsConstructor
 public class DeploymentStatusDTO {
 
     private DeploymentStatus status;
     private RequiredResourcesDTO requiredResources;
+    private String details;
 
     public DeploymentStatusDTO() {
 
-    }
-
-    public DeploymentStatusDTO(DeploymentStatus status, RequiredResourcesDTO requiredResources) {
-        this.status = status;
-        this.requiredResources = requiredResources;
     }
 
 }
