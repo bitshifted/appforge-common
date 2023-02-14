@@ -7,7 +7,7 @@
     <parent>
         <groupId>co.bitshifted.appforge</groupId>
         <artifactId>appforge</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
     <groupId>co.bitshifted.appforge</groupId>
     <artifactId>appforge-common</artifactId>
@@ -21,7 +21,7 @@
         <connection>scm:git:git@github.com:bitshifted/appforge-common.git</connection>
         <developerConnection>scm:git:git@github.com:bitshifted/appforge-common.git</developerConnection>
         <url>https://github.com/bitshifted/appforge-common</url>
-        <tag>v1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
