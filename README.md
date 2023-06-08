@@ -2,7 +2,7 @@
 
 *Ignite is part of [AppForge](https://github.com/bitshifted/appforge) platform.*
 
-This repository common code for AppForge components.
+This repository contains common code for AppForge components.
 
 # License
 
